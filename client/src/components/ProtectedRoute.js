@@ -15,7 +15,7 @@ export default function ProtectedRoute({ children }) {
         try {
           dispatch(showLoading());
           const {data} = await axios.post(
-            "/api/user/getUserData",
+            "https://doctor-appointment-system-17dt.onrender.com/api/user/getUserData",
             { token: localStorage.getItem("token") },
             {
               headers: {

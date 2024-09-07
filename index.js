@@ -17,7 +17,13 @@ connectDb();
 const app = express();
 
 // middlewares
-app.use(cors({ origin: "https://doctor-appointment-system-ochre.vercel.app" })); // Enable CORS for your frontend domain
+app.use(cors({
+  origin: "https://doctor-appointment-system-ochre.vercel.app",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+  credentials: true 
+}));
+
 app.use(express.json());
 app.use(morgan("dev"));
 

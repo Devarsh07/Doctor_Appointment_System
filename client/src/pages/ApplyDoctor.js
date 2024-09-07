@@ -18,7 +18,7 @@ const ApplyDoctor = () => {
       const starttime = values.starttime.format("HH:mm");
       const endtime = values.endtime.format("HH:mm");
       const res = await axios.post(
-        "/api/user/apply-doctor",
+        "https://doctor-appointment-system-17dt.onrender.com/api/user/apply-doctor",
         {
           ...values,
           userId: user._id,

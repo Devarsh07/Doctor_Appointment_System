@@ -8,7 +8,7 @@ const Doctors = () => {
   //getUsers
   const getDoctors = async () => {
     try {
-      const res = await axios.get("/api/admin/getAllDoctors", {
+      const res = await axios.get("https://doctor-appointment-system-17dt.onrender.com/api/admin/getAllDoctors", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -25,7 +25,7 @@ const Doctors = () => {
   const handleAccountStatus = async (record, status) => {
     try {
       const res = await axios.post(
-        "/api/admin/changeAccountStatus",
+        "https://doctor-appointment-system-17dt.onrender.com/api/admin/changeAccountStatus",
         { doctorId: record._id, userId: record.userId, status: status },
         {
           headers: {

@@ -22,7 +22,7 @@ const handleMarkAllRead = async () => {
   try {
     dispatch(showLoading());
     const res = await axios.post(
-      "/api/user/get-all-notification",
+      "https://doctor-appointment-system-17dt.onrender.com/api/user/get-all-notification",
       {
         userId: user._id,
       },
@@ -59,7 +59,7 @@ const handleDeleteAllRead = async () => {
   try {
     dispatch(showLoading());
     const res = await axios.post(
-      "/api/user/delete-all-notification",
+      "https://doctor-appointment-system-17dt.onrender.com/api/user/delete-all-notification",
       {
         userId: user._id,
       },

@@ -1,55 +1,39 @@
 const express = require("express");
 const colors = require("colors");
-const morgan = require("morgan");
+const moragan = require("morgan");
 const dotenv = require("dotenv");
-const cors = require("cors"); // Add this line
 const userRoutes = require('./routes/userRoute');
 const adminRoutes = require("./routes/adminRoute");
-const doctorRoutes = require("./routes/doctorRoute");
+const doctorRoutes = require("./routes/doctorRoute")
 const connectDb = require("./config/connectDb");
 const path = require("path");
 
-// dotenv config
+//dotenv conig
 dotenv.config();
 connectDb();
 
-// rest object
+//rest obejct
 const app = express();
 
-// middlewares
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://doctor-appointment-system-ochre.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  
-  // Handle preflight requests
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  
-  next();
-});
-
-
+//middlewares
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(moragan("dev"));
 
-// routes
+//routes
 app.use("/api/user", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/doctor", doctorRoutes);
 
-// static files
+//static files
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// port
+//port
 const PORT = process.env.PORT || 4000;
-// listen port
+//listen port
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });

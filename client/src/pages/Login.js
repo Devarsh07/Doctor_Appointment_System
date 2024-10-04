@@ -34,10 +34,10 @@ const Login = () => {
       <div className="register-page">
         <Form layout="vertical" onFinish={submitHandler}>
           <h1>Login</h1>
-          <Form.Item label="Email" name="email">
+          <Form.Item label="Enter your email" name="email">
             <Input type="email" />
           </Form.Item>
-          <Form.Item label="Password" name="password">
+          <Form.Item label="Enter password" name="password">
             <Input.Password />
           </Form.Item>
           <div className="d-flex justify-content-between">
